@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticker</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="shortcut icon" href="./image/icon.png"/>
+    <script>
+        function setcookie(){
+            var thoigian = document.getElementById("thoigian").value;
+            var checkbox = document.getElementsByName("radio");
+                for (var i = 0; i < checkbox.length; i++){
+                    if (checkbox[i].checked === true){
+                        mien = checkbox[i].value;
+                    }
+                }
+            var ten = document.getElementById("ten").value;
+            var sove = document.getElementById("sove").value;
+            var email = document.getElementById("email").value;
+            var sdt = document.getElementById("sdt").value;
+            var gio = document.getElementById("chongio").value;
+            tongtien = sove*1500000;
+            if(thoigian == "" || mien == ""|| ten == "" || sove == ""|| email ==""|| sdt == "" || sove < 1){
+                alert("Vui lòng nhập đầy đủ thông tin, số vé > 1")
+            }
+            else{
+                document.cookie = 'Ho ten: ' + ten 
+                    + ' <br>Thoi gian:' + thoigian 
+                    + '<br>So ve: ' + sove 
+                    + ' <br> Dia diem: ' + mien
+                    + ' <br> Email: ' + email 
+                    + ' <br> SDT: ' + sdt
+                    + ' <br>Gio bay: ' + gio
+                    + ' <br><b>Tong tien: ' + tongtien + 'VNĐ <b> # ; expires=Thu, 22 Dec 2021 19:55:20 UTC' ;
+                alert("Đã thêm vé tạm thời! hãy tiến hành thanh toán")
+            }
+        }
+        function xemve(){
+            var thongtin = document.cookie;
+            mang = thongtin.split('#')
+            value = mang[0].split('=')[0];  
+            document.getElementById("formve").innerHTML = '<div id="thongtinve"> ' +value + '<div>';
+            document.getElementById("thanhtoan").innerHTML = '<input type="button" value="Thanh toán" onclick="thanhtoan()" style="height: 50px; width: 150px;">';
+        }
+        function tinhtien(){
+            var soluongve = document.getElementById("sove").value;
+            tongtien = soluongve*1500000;
+            document.getElementById("tongtien").innerHTML = tongtien + 'VNĐ';
+        }
+
+        function thanhtoan(){
+            var test = document.cookie;
+            if (test.trim() == ""){
+                alert("Giỏ hàng trống");
+            }
+            else{
+                alert("Thanh toán thành công");
+                document.cookie = 'Đã thanh toán; expires=Thu, 22 Dec 1990 19:55:20 UTC';
+                var cookies = document.cookie;
+                document.getElementById("formve").innerHTML = cookies + 'Không có vé nào chờ thanh toán ' ;
+            }
+           
+        }
+
+
+    </script>
+</head>
+<body>
+<div>
+    <div id="Dangnhap" style="float: right;">
+        <a href="./dangnhap.html">Đăng Nhập</a>|
+        <a href="./dangki.html">Đăng kí</a>
+    </div>
+    <div id="menu">
+        <center>
+            <input type="image" name="" id="" src="./image/li1.png" style="height: 100px;">
+        </center>
+        <ul style="background-color: aqua;">
+            <li><a href="./Trangchu.html" >Home</a></li>
+            <li><a href="./Tour.html" >Tour</a>
+                <ul class="menucap2">
+                    <li><a href="" >Miền Bắc</a>
+                        <ul id="menucap3">
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-ha-noi-1-ngay.html" target="_blank">Giá rẻ</a> </li>
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-hoa-lu-tam-coc-1-ngay.html" target="_blank">Tầm Trung</a></li>
+                            <li><a href="https://www.agoda.com/emeralda-resort-ninh-binh/hotel" target="_blank">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" >Miền Trung</a>
+                        <ul id="menucap3">
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-ha-noi-1-ngay.html" target="_blank">Giá rẻ</a> </li>
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-hoa-lu-tam-coc-1-ngay.html" target="_blank">Tầm Trung</a></li>
+                            <li><a href="https://www.agoda.com/emeralda-resort-ninh-binh/hotel" target="_blank">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" >Miền Nam</a>
+                        <ul id="menucap3">
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-ha-noi-1-ngay.html" target="_blank">Giá rẻ</a> </li>
+                            <li><a href="https://www.vietfuntravel.com.vn/tour-ha-noi/tour-du-lich-hoa-lu-tam-coc-1-ngay.html" target="_blank">Tầm Trung</a></li>
+                            <li><a href="https://www.agoda.com/emeralda-resort-ninh-binh/hotel" target="_blank">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </lí>
+    
+            <li id="dangchon"><a href="./Ticker.html" >Ticker</a></lí>
+                <li><a href="./Hotel.html" >Hotel</a></li>
+                <li>
+                <a href="" >Place</a>
+                <ul class="menucap2">
+                    <li><a href="./html/MienBac.html" >Miền Bắc</a></li>
+                    <li><a href="./html/MienTrunng.html" >Miền Trung</a></li>
+                    <li><a href="./html/MienNam.html" >Miền Nam</a></li>
+                </ul>
+    </div> <br> <hr>
+
+    <div id="formve" >
+        <form action="">
+            <table id="bangve">
+               <tr>
+                   <td>Name:</td>
+                   <td><input type="text" placeholder="Name" id="ten"></td>
+               </tr>
+
+               <tr>
+                   <td>Số vé:</td>
+                   <td><input type="number" id="sove" onchange="tinhtien()"></td>
+               </tr>
+               <tr>
+                   <td>Địa điểm:</td>
+                   <td>
+                    <div id="mien"> 
+                        <input type="radio" name="radio" value="Hà Nội">Hà Nội <br>
+                        <input type="radio" name="radio" value="Thành Phố Hồ Chí Minh">TP HCM <br>
+                        <input type="radio" name="radio" value="Phú Quốc">Phú Quốc <br>
+                    </div>
+                    </td>
+               </tr>
+               <tr>
+                   <td>Thời gian:</td>
+                   <td><input type="date" name="date" id="thoigian"></td>
+               </tr>
+
+               <tr>
+                   <td>Email:</td>
+                   <td><input type="text" id="email"></td>
+               </tr>
+               <tr>
+                    <td>Số điện thoại:</td>
+                    <td><input type="text" id="sdt"></td>
+                </tr>
+             
+               <tr>
+                    <td>Thời gian khởi hành:</td>
+                    <td><select id="chongio">
+                        <option value="11h35">11h35</option>
+                        <option value="10h45">10h45</option>
+                        <option value="13h40">13h40</option>
+                        <option value="1h40">1h40</option>
+                        <option value="2h40">2h40</option>
+                        <option value="3h40">3h40</option>
+                    </select>
+                    <br><br>
+                    </td>
+               </tr>
+               
+               <tr>
+                   <td>Chuyến bay:</td>
+                   <td><input type="image" src="./image/maybay.jpg" alt="" style="width: 200px; height: 100px;"></td>
+               </tr>
+               <tr>
+                   <td>Xác nhận</td>
+                   <td><input type="button" value="Đặt vé" onclick="setcookie() " style="height: 50px; width: 150px;"></td>
+               </tr>
+               <tr>
+                    <td>Tổng tiền</td>
+                    <td><h1 id="tongtien"> 0VNĐ</h1></td>
+                </tr>
+               <tr>
+                   <td colspan="2" align="center"><button type="reset" style="height: 50px; width: 150px;">Đặt lại</button></td>
+               </tr>
+            </table>
+        </form>
+    </div>
+
+    <div style="margin-left: 40%;">
+        <input type="button" value="Xem thông tin vé" onclick="xemve()" style="height: 50px; width: 150px;">
+        <input type="button" value="Đặt vé mới" onClick="window.location.reload()" style="height: 50px; width: 150px;" >
+    </div>
+    <div style="margin-left: 44%;" id="thanhtoan">
+        
+    </div>
+</div>
+</body>
+</html>

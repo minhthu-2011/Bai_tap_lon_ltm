@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <script>
+        function dangnhap(){
+            var taikhoan = document.getElementById("taikhoandn").value  ;
+            var matkhau = document.getElementById("matkhaudn").value;
+
+            var taikhoancu = document.cookie;
+            mang = taikhoancu.split(';');
+
+            if(taikhoan == "" || matkhau == ""){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            }
+            else{
+                value = mang[0].split('=')[1];   
+                valuetk = mang[1].split('=')[1];   
+                if(value == matkhau && valuetk == taikhoan){
+                    alert("Đăng nhập thành công");
+                    window.open('../index.html');
+                    window.close();
+                    window.focus();
+                }
+                else{
+                    alert("Sai tên tài khoản hoặc mật khẩu")
+                }
+            }
+        }
+        function dangki(){
+            window.open('./dangki.html');
+            window.close();
+            window.focus();
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <form action="" id="dangnhap">
+        
+        <table id="bangdangnhap">
+            <tr>
+                <td colspan="3" align="center" >
+                    <h1>Đăng nhập</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" src="./image/taikhoan.png" style="width: 40px;" alt="">
+                </td>
+                <td>Tên tài khoản</td>
+                <td><input type="text" name="" id="taikhoandn" placeholder="Nhập tài khoản"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" src="./image/pass.png" style="width: 30px;" alt="">
+
+                </td>
+                <td>Mật khẩu</td>
+                <td><input type="password" name="" id="matkhaudn" placeholder="Nhập mật khẩu"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><input type="button" value="Đăng Nhập" onclick="dangnhap()"></td>
+                <td><input type="button" value="Đăng Kí" onclick="dangki()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

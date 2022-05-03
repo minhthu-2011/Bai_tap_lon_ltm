@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <script>
+        function dangki(){
+            var tk = document.getElementById("taikhoan").value  ;
+            var mk = document.getElementById("matkhau").value;
+            var nhaplai = document.getElementById("nhaplaimatkhau").value;
+            if(tk == "" || mk == "" || nhaplai == ""){
+                alert("Vui lòng nhập đầy đủ thông tin");
+            }
+            else{
+                if( mk != nhaplai){
+                alert("Mật khẩu không trùng khớp");
+                }
+                else{
+                    document.cookie = 'MK=' + mk;
+                    document.cookie = 'TK=' + tk;
+                    alert("Thành công");
+                }
+            }
+        }
+        function dangnhap(){
+            window.open('./dangnhap.html');
+            window.close();
+            window.focus();
+        }
+
+    </script>
+</head>
+<body>
+    <form action="" id="dangki">
+        <table id="bangdangki">
+            <tr>
+                <td colspan="2" align="center"><h1>Đăng kí</h1></td>
+            </tr>
+            <tr>
+                <td>Tên tài khoản</td>
+                <td><input type="text" name="" id="taikhoan" placeholder="Nhập tài khoản"></td>
+            </tr>
+            <tr>
+                <td>Mật khẩu</td>
+                <td><input type="password" name="" id="matkhau" placeholder="Nhập mật khẩu"></td>
+            </tr>
+            <tr>
+                <td>Nhập lại mật khẩu</td>
+                <td><input type="password" name="" id="nhaplaimatkhau" placeholder="Nhập lại mật khẩu"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="button" value="Đăng kí" onclick="dangki()"></td>
+                <td align="center"><input type="button" value="Đăng nhập" onclick="dangnhap()"></td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

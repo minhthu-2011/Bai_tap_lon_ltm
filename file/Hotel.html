@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="shortcut icon" href="./image/icon.png"/>
+
+    <script type="text/javascript">
+        var ds = new Array();
+        var anh = 0;
+        var duongdan;
+        var ds = [
+        "./image/khachsan.jpg",
+        "./image/khachsan1.jpg",
+        "./image/khachsan2.jpg",
+        "./image/khachsan3.jpg",
+        "./image/khachsan4.jpg",
+        "./image/khachsan5.jpg",
+        "./image/khachsan6.jpg",
+        "./image/khachsan7.jpg"
+        ]
+        
+        var dsten = [
+        "HOTEL METROFOLE HANOI",
+        "HOTEL METROFOLE HANOI",
+        "View Khách sạn",
+        "Nội thất trong phòng",
+        "MARO HOTEL",
+        "",
+        "",
+        ""
+        ]
+        
+
+        function quaylai(){
+            if(anh > 0){
+                anh -= 1;
+                duongdan = '<img src="'+ ds[anh] +'" style="width: 1024px;">';
+                document.getElementById("ten").innerHTML = dsten[anh];
+                document.getElementById("hienthi").innerHTML = duongdan;
+            }
+        }
+        function tieptheo(){
+            if(anh < 7){
+                anh += 1;
+                duongdan = '<img src="'+ ds[anh] +'" style="width: 1024px;">';
+                document.getElementById("ten").innerHTML = dsten[anh];
+                document.getElementById("hienthi").innerHTML = duongdan;
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div>
+    <div id="Dangnhap" style="float: right;">
+        <a href="./dangnhap.html">Đăng Nhập</a>|
+        <a href="./dangki.html">Đăng kí</a>
+    </div>
+    <div id="menu">
+        <center>
+            <input type="image" name="" id="" src="./image/li1.png" style="height: 100px;">
+        </center>
+        <ul style="background-color: aqua;">
+            <li><a href="./Trangchu.html" >Home</a></li>
+            <li><a href="./Tour.html" >Tour</a>
+                <ul class="menucap2">
+                    <li><a href="" >Miền Bắc</a>
+                        <ul id="menucap3">
+                            <li><a href="">Giá rẻ</a> </li>
+                            <li><a href="">Tầm Trung</a></li>
+                            <li><a href="">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" >Miền Trung</a>
+                        <ul id="menucap3">
+                            <li><a href="">Giá rẻ</a> </li>
+                            <li><a href="">Tầm Trung</a></li>
+                            <li><a href="">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" >Miền Nam</a>
+                        <ul id="menucap3">
+                            <li><a href="">Giá rẻ</a> </li>
+                            <li><a href="">Tầm Trung</a></li>
+                            <li><a href="">Cao Cấp</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </lí>
+    
+            <li><a href="./Ticker.html" >Ticker</a></lí>
+            <li id="dangchon"><a href="./Hotel.html" >Hotel</a></li>
+            <li>
+                <a href="" >Place</a>
+                <ul class="menucap2">
+                    <li><a href="./html/MienBac.html" >Miền Bắc</a></li>
+                    <li><a href="./html/MienTrunng.html" >Miền Trung</a></li>
+                    <li><a href="./html/MienNam.html" >Miền Nam</a></li>
+                </ul>
+            </li>
+            </ul>
+    </div> <br> <hr>
+
+    <div >
+        <br>
+        <div id="nut" style="margin-left: 400px; width: 300px">
+            <table style="margin-left: 400px;">
+                <tr >
+                    <td><input type="button" value="Quay Lại" onclick="quaylai()" id="nut"></td>
+                    <td><input type="button" value="Tiếp Theo" onclick="tieptheo()" id="nut"></td>
+                </tr>
+            </table>
+            <br>
+               <div id="ten">
+                    HOTEL METROFOLE HANOI
+                </div>
+        <div id="hienthi" align ="center"  >
+            <img src="./image/khachsan.jpg" style="width: 1024px;">
+        </div>
+		
+     
+       
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
